@@ -36,7 +36,7 @@ const errorHandler = (err, req, res, next) => {
   }
   console.log('statusCode', statusCode);
 
-  res.sendWrapped(response.message, response, httpStatus[statusCode]);
+  res.status(statusCode).send({ ...response });
 
   next();
 };
