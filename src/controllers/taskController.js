@@ -5,7 +5,7 @@ const taskModel = require('../models/taskModel');
 const taskAllController = async (req, res) => {
   try {
     const tasks = await taskModel.taskGetAllModel();
-    console.log(tasks);
+
     res.status(200).send({
       status: httpStatus.OK,
       message: 'OK',

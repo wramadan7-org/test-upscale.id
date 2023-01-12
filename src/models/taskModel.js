@@ -4,7 +4,7 @@ const ApiError = require('../helpers/ApiError');
 
 const taskGetAllModel = async () => {
   try {
-    const response = await db.promise().query('SELECT * FROM s');
+    const response = await db.promise().query('SELECT * FROM tasks');
     const [rows] = response;
     return rows;
   } catch (error) {
