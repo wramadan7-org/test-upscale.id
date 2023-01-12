@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const dbConfig = require('./configs/db');
+const { errorConverter, errorHandler } = require('./middlewares/errorHandler');
 const routeV1 = require('./routes/index');
 
 const app = express();
@@ -22,6 +23,9 @@ dbConfig.getConnection((error) => {
     console.log('MySQL Database in Connected!');
   }
 });
+
+app.use(errorConverter);
+app.use(errorHandler);
 
 app.listen(NODE_PORT, () => {
   console.log(`App listen on port ${NODE_PORT}`);
