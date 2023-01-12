@@ -7,6 +7,30 @@
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
     "mysql2": "^3.0.0",
+    "nodemon": "^2.0.20",
     "winston": "^3.8.2"
-  }
+  },
+  "devDependencies": {
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.4"
+  },
+  "name": "testtalentasinergigroup",
+  "version": "1.0.0",
+  "description": "Test Upscale",
+  "main": "src/service.js",
+  "scripts": {
+    "start": "nodemon ./src/service.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wramadan7-org/test-upscale.id.git"
+  },
+  "author": "Wahyu Ramadan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wramadan7-org/test-upscale.id/issues"
+  },
+  "homepage": "https://github.com/wramadan7-org/test-upscale.id#readme"
 }
