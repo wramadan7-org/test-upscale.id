@@ -11,7 +11,7 @@ const errorConverter = (err, req, res, next) => {
     error = new ApiError(message, statusCode, error.stack, false);
   }
 
-  next();
+  next(error);
 };
 
 const errorHandler = (err, req, res, next) => {
@@ -34,8 +34,9 @@ const errorHandler = (err, req, res, next) => {
   if (NODE_ENV === 'development') {
     console.error(err);
   }
+  console.log('statusCode', statusCode);
 
-  res.status(httpStatus.OK).send(response);
+  res.sendWrapped(response.message, response, httpStatus[statusCode]);
 
   next();
 };
