@@ -15,7 +15,7 @@ app.options('*', cors());
 
 app.use('/v1', routeV1);
 
-dbConfig.connect((error) => {
+dbConfig.getConnection((error) => {
   if (error) {
     console.error(error);
   } else {
