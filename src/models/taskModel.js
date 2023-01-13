@@ -31,13 +31,32 @@ const taskGetByIdModel = async (id) => {
 
     return rows;
   } catch (error) {
-    console.log(error);
     throw new ApiError(error.sqlMessage || error.message, httpStatus.INTERNAL_SERVER_ERROR);
   }
+};
+
+const taskUpdateByIdModel = async (data, id) => {
+  try {
+    const response = await db.promise().query('UPDATE tasks SET ? WHERE id = ?', [data, id]);
+    const [rows] = response;
+
+    return rows;
+  } catch (error) {
+    throw new ApiError(error.sqlMessage || error.message, httpStatus.INTERNAL_SERVER_ERROR);
+  }
+};
+
+const taskDeleteByIdModel = async (id) => {
+  const response = db.promise().query('DELETE FROM tasks WHERE id = ?', id);
+  const [[rows]] = response;
+
+  return rows;
 };
 
 module.exports = {
   taskCreateModel,
   taskGetAllModel,
   taskGetByIdModel,
+  taskUpdateByIdModel,
+  taskDeleteByIdModel,
 };
