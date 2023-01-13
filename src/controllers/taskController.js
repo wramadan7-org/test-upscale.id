@@ -61,7 +61,7 @@ const taskUpdateByIdController = async (req, res) => {
 
     const task = await taskModel.taskUpdateByIdModel(requestBody, id);
 
-    res.sendWrapped(`Task with ID ${id}`, task, httpStatus.OK);
+    res.sendWrapped(`Task with ID ${id} successfully updated`, task, httpStatus.OK);
   } catch (error) {
     res.sendWrapped(error.message, null, error.statusCode);
   }
