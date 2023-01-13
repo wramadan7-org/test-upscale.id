@@ -7,7 +7,7 @@ const taskCreateController = async (req, res) => {
   try {
     const { title, description, completed } = req.body;
 
-    const data = [title, description || null, completed];
+    const data = [title, description || null, completed || false];
 
     const task = await taskModel.taskCreateModel(data);
 
