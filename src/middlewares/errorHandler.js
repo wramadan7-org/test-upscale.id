@@ -1,5 +1,6 @@
 require('dotenv').config();
 const httpStatus = require('http-status');
+const logger = require('../configs/logger');
 const ApiError = require('../helpers/ApiError');
 
 const errorConverter = (err, req, res, next) => {
@@ -32,9 +33,8 @@ const errorHandler = (err, req, res, next) => {
   };
 
   if (NODE_ENV === 'development') {
-    console.error(err);
+    logger.error(err);
   }
-  console.log('statusCode', statusCode);
 
   res.status(statusCode).send({ ...response });
 
